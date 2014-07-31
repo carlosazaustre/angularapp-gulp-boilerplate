@@ -1,7 +1,7 @@
 {
-  "name": "ebook-frontend-project",
+  "name": "webapp-gulp-bp",
   "version": "0.0.1",
-  "description": "Ejemplo de desarrollo de aplicación web con JavaScript",
+  "description": "",
   "dependencies": {
     "angular": "~1.2.21",
     "bootstrap": "~3.2.0"
