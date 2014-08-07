@@ -1,4 +1,44 @@
+@font-face {
+  font-family: 'Raleway-Light';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Raleway Light'), local('Raleway-Light'), url("//themes.googleusercontent.com/static/fonts/raleway/v7/-_Ctzj9b56b8RgXW8FArib3hpw3pgy2gAi-Ip7WPMi0.woff") format('woff');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Raleway'), url("//themes.googleusercontent.com/static/fonts/raleway/v7/cIFypx4yrWPDz3zOxk7hIQLUuEpTyoUstqEm5AMlJo4.woff") format('woff');
+}
 body {
-  background: #fff;
-  color: #000;
+  font-family: 'Raleway-Light';
+  font-size: 16px;
+}
+.blog-post-list {
+  list-style-type: none;
+}
+.blog-post-list .blog-post-link {
+  font-family: 'Raleway';
+  margin: 0.5em 0 1em 0;
+  padding: 0 0 0.25em 0;
+  border-bottom: 1px solid #ddd;
+}
+.blog-post .blog-post-header h1 {
+  font-family: 'Raleway';
+}
+.comments .comments-list {
+  list-style-type: none;
+}
+.comments .comments-list .comment-item {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 0.5em;
+  margin: 0.5em;
+}
+.comments .comments-list .comment-item .comment-author {
+  font-family: 'Raleway';
+  font-weight: bold;
+}
+.comments .comments-list .comment-item .comment-body {
+  font-style: italic;
 }

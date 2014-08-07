@@ -3,19 +3,24 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>AngularApp Boilerplate</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Coloca favicon.ico y apple-touch-icon(s) en el directorio raíz -->
 
+    <!-- build:css css/style.min.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="lib/angular-motion/dist/angular-motion.min.css" />
+    <link rel="stylesheet" href="lib/fontawesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- inject:css -->
     <link rel="stylesheet" href="/stylesheets/main.css">
     <!-- endinject -->
+
+    <!-- endbuild -->
   </head>
-  <body>
+  <body ng-app="app">
     <!--[if lt IE 8]>
         <p class="browsehappy">
         Estás usando un navegador <strong>desactualizado</strong>.
@@ -23,8 +28,15 @@
         Para mejorar la experiencia..
       </p>
     <![endif]-->
+    <div class="container-fluid">
+      <div class="row">
+        <aside class="col-sm-3 author-profile">
+          Información del autor
+        </aside>
+        <section class="col-sm-9" ng-view></section>
+      </div>
 
-    <p>Hola Mundo! Esto es HTML5 Boilerplate.</p>
+    </div>
 
     <!-- Google Analytics: Cambia UA-XXXXX-X por el ID de tu sitio -->
     <script>
@@ -35,13 +47,25 @@
         r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
         ga('create','UA-XXXXX-X','auto');ga('send','pageview');
     </script>
+    <!-- build:js js/vendor.min.js -->
     <!-- bower:js -->
     <script src="lib/jquery/dist/jquery.js"></script>
     <script src="lib/angular/angular.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/angular-strap/dist/angular-strap.min.js"></script>
+    <script src="lib/angular-strap/dist/angular-strap.tpl.min.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <script src="lib/angular-resource/angular-resource.js"></script>
     <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:js js/app.min.js -->
     <!-- inject:js -->
-    <script src="/scripts/main.js"></script>
+    <script src="/scripts/templates.js"></script>
+    <script src="/scripts/services.js"></script>
+    <script src="/scripts/controllers.js"></script>
+    <script src="/scripts/app.js"></script>
     <!-- endinject -->
+    <!-- endbuild -->
   </body>
 </html>
