@@ -1,0 +1,26 @@
+<article class="blog-post">
+  <header class="blog-post-header">
+    <h1>{{ postdetail.post.title }}</h1>
+  </header>
+  <p class="blog-post-body">
+    {{ postdetail.post.body }}
+  </p>
+  <p>
+    Escrito por: <strong>{{ postdetail.user[0].name }}</strong>
+      <span class="fa fa-envelope"></span> {{ postdetail.user[0].email }}
+  </p>
+</article>
+<hr>
+<aside class="comments">
+  <header class="comments-header">
+    <h3><span class="fa fa-comments"></span> Comments</h3>
+  </header>
+  <ul class="comments-list">
+    <li class="comment-item" ng-repeat="comment in postdetail.comments">
+      <span class="fa fa-user"></span> <span class="comment-author">{{ comment.email }}</span>
+      <p class="comment-body">
+        {{ comment.body }}
+      </p>
+    </li>
+  </ul>
+</aside>
