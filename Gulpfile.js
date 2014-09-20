@@ -63,7 +63,6 @@ gulp.task('css', function() {
 // Recarga el navegador cuando hay cambios en el HTML
 gulp.task('html', function() {
   gulp.src('./app/**/*.html')
-    .pipe()
     .pipe(connect.reload());
 });
 
