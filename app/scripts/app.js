@@ -3,7 +3,7 @@
 
   /* @ngInject */
   angular
-    .module('app', ['ngRoute', 'app.controllers', 'app.templates'])
+    .module('app', ['ngRoute', 'app.controllers', 'app.services'])
     .config(config);
 
   /* @ngInject */
