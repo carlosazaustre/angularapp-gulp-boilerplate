@@ -15,7 +15,8 @@ var gulp      = require('gulp'),
     uglify    = require('gulp-uglify'),
     uncss     = require('gulp-uncss'),
     angularFilesort = require('gulp-angular-filesort'),
-    templateCache = require('gulp-angular-templatecache');
+    templateCache = require('gulp-angular-templatecache'),
+    historyApiFallback = require('connect-history-api-fallback');
 
 // Servidor web de desarrollo
 gulp.task('server', function() {
@@ -23,7 +24,10 @@ gulp.task('server', function() {
     root: './app',
     hostname: '0.0.0.0',
     port: 8080,
-    livereload: true
+    livereload: true,
+    middleware: function(connect, opt) {
+      return [ historyApiFallback ];
+    }
   });
 });
 
@@ -33,7 +37,10 @@ gulp.task('server-dist', function() {
     root: './dist',
     hostname: '0.0.0.0',
     port: 8080,
-    livereload: true
+    livereload: true,
+    middleware: function(connect, opt) {
+      return [ historyApiFallback ];
+    }
   });
 });
 
