@@ -2,7 +2,7 @@
 'use strict';
 
 var gulp      = require('gulp'),
-    connect   = require('gulp-connect'),
+    webserver = require('gulp-webserver');
     stylus    = require('gulp-stylus'),
     nib       = require('nib'),
     jshint    = require('gulp-jshint'),
@@ -19,29 +19,27 @@ var gulp      = require('gulp'),
     historyApiFallback = require('connect-history-api-fallback');
 
 // Servidor web de desarrollo
-gulp.task('server', function() {
-  connect.server({
-    root: './app',
-    hostname: '0.0.0.0',
-    port: 8080,
-    livereload: true,
-    middleware: function(connect, opt) {
-      return [ historyApiFallback ];
-    }
-  });
+gulp.task('server', function(){
+	gulp.src( path.root )
+		.pipe(webserver({
+			host		: "0.0.0.0",
+			port		: 8080,
+			livereload	: true,
+			fallback	: 'index.html',
+			middleware	: [ historyApi ]
+		}));
 });
 
 // Servidor web para probar el entorno de producción
 gulp.task('server-dist', function() {
-  connect.server({
-    root: './dist',
-    hostname: '0.0.0.0',
-    port: 8080,
-    livereload: true,
-    middleware: function(connect, opt) {
-      return [ historyApiFallback ];
-    }
-  });
+	gulp.src( path.root )
+		.pipe(webserver({
+			host		: "0.0.0.0",
+			port		: 8080,
+			livereload	: true,
+			fallback	: 'index.html',
+			middleware	: [ historyApi ]
+		}));
 });
 
 // Busca errores en el JS y nos los muestra por pantalla
