@@ -2,7 +2,7 @@
 'use strict';
 
 var gulp      = require('gulp'),
-    webserver = require('gulp-webserver');
+    webserver = require('gulp-webserver'),
     stylus    = require('gulp-stylus'),
     nib       = require('nib'),
     jshint    = require('gulp-jshint'),
