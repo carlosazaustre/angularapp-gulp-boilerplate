@@ -21,7 +21,8 @@ var gulp      = require('gulp'),
 
 
 var path = {
-  root   : './app/'
+  root   : './app/',
+  dist   : './dist/'
 }
 
 // Servidor web de desarrollo
@@ -38,7 +39,7 @@ gulp.task('server', function(){
 
 // Servidor web para probar el entorno de producción
 gulp.task('server-dist', function() {
-	gulp.src( path.root )
+	gulp.src( path.dist )
 		.pipe(webserver({
 			host		: "0.0.0.0",
 			port		: 8080,
