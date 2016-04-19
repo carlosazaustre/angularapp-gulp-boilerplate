@@ -3,9 +3,9 @@
 
 var gulp      = require('gulp'),
     webserver = require('gulp-webserver'),
+    connect   = require('gulp-connect'),
     stylus    = require('gulp-stylus'),
     nib       = require('nib'),
-    path      = require('path'),
     jshint    = require('gulp-jshint'),
     stylish   = require('jshint-stylish'),
     inject    = require('gulp-inject'),
@@ -19,6 +19,12 @@ var gulp      = require('gulp'),
     templateCache = require('gulp-angular-templatecache'),
     historyApiFallback = require('connect-history-api-fallback');
 
+
+var path = {
+  root   : './app/',
+  dist   : './dist/'
+}
+
 // Servidor web de desarrollo
 gulp.task('server', function(){
 	gulp.src( path.root )
@@ -27,19 +33,19 @@ gulp.task('server', function(){
 			port		: 8080,
 			livereload	: true,
 			fallback	: 'index.html',
-			middleware	: [ historyApi ]
+			middleware	: [ historyApiFallback ]
 		}));
 });
 
 // Servidor web para probar el entorno de producción
 gulp.task('server-dist', function() {
-	gulp.src( path.root )
+	gulp.src( path.dist )
 		.pipe(webserver({
 			host		: "0.0.0.0",
 			port		: 8080,
 			livereload	: true,
 			fallback	: 'index.html',
-			middleware	: [ historyApi ]
+			middleware	: [ historyApiFallback ]
 		}));
 });
 
@@ -108,7 +114,7 @@ gulp.task('templates', function() {
 // y los minifica.
 gulp.task('compress', function() {
   gulp.src('./app/index.html')
-    .pipe(useref.assets())
+    .pipe(useref())
     .pipe(gulpif('*.js', uglify({mangle: false })))
     .pipe(gulpif('*.css', minifyCss()))
     .pipe(gulp.dest('./dist'));
